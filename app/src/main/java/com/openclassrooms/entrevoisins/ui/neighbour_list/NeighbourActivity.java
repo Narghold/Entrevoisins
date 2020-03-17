@@ -18,17 +18,15 @@ public class NeighbourActivity extends AppCompatActivity {
     protected final static String BUNDLE_NEIGHBOUR_KEY = "neighbour";
     private TextView mNeighbourName;
     private ImageView mNeighbourAvatar;
-    private ImageButton mBackButton;
     private TextView mNeighbourNameInfo;
+    private FloatingActionButton mFavoriteButton;
     private TextView mNeighbourWeb;
     private TextView mNeighbourDescription;
-    private FloatingActionButton mFavoriteButton;
 
     //Lorem Ipsum
     private final static String NEIGHBOUR_DESCRIPTION = "Utque aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existimans factum aut cogitatum, insontium caedibus fecit victoriam luctuosam.";
 
-    //Entrevoisins.com
-    private final static String ENTREVOISINS_WEB = "www.entrevoisins.com/";
+    private final static String ENTREVOISINS_WEB = "www.entrevoisins.com/"; //Entrevoisins.com
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +36,7 @@ public class NeighbourActivity extends AppCompatActivity {
         //findViewById
         mNeighbourName = findViewById(R.id.neighbour_name);
         mNeighbourAvatar = findViewById(R.id.neighbour_avatar);
-        mBackButton = findViewById(R.id.neighbour_back_btn);
+        ImageButton mBackButton = findViewById(R.id.neighbour_back_btn);
         mNeighbourNameInfo = findViewById(R.id.neighbour_name_info);
         mNeighbourWeb = findViewById(R.id.neighbour_web);
         mNeighbourDescription = findViewById(R.id.neighbour_description);
@@ -46,21 +44,15 @@ public class NeighbourActivity extends AppCompatActivity {
 
         //Bundle
         Bundle mNeighbourInfo = getIntent().getExtras();
+        assert mNeighbourInfo != null;
         Neighbour mNeighbour = mNeighbourInfo.getParcelable(BUNDLE_NEIGHBOUR_KEY);
-        mNeighbourName.setText(mNeighbour.getName());
-        mNeighbourNameInfo.setText(mNeighbour.getName());
-        Glide.with(this).load(mNeighbour.getAvatarUrl()).into(mNeighbourAvatar);
 
+        assert mNeighbour != null;
+        setNeighbourInfo(mNeighbour);
         setIcon(mNeighbour);
 
-        //TODO //Faire en sorte de verifier si voisin present dans liste de favoris
-
-        //SetText w/ username
-        mNeighbourWeb.setText(ENTREVOISINS_WEB + mNeighbour.getName().toLowerCase());
-
-        //SetText Lorem Ipsum description
-        mNeighbourDescription.setText(NEIGHBOUR_DESCRIPTION);
-
+        //TODO Verify if neighbour is in favorite tab
+        
         //OnClickListener
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,14 +74,32 @@ public class NeighbourActivity extends AppCompatActivity {
         });
     }
 
-    //Change Icon
+    /** Set the favorite button with the good icon, resource and ripple
+     *
+     * @param neighbour
+     */
     private void setIcon(Neighbour neighbour){
         if (neighbour.getFavorite()){
             mFavoriteButton.setImageResource(R.drawable.ic_star_white_24dp);
             mFavoriteButton.setColorFilter(Color.rgb(255,215,0));
+            mFavoriteButton.setRippleColor(Color.rgb(200, 200, 200));
         }else {
             mFavoriteButton.setImageResource(R.drawable.ic_star_border_white_24dp);
             mFavoriteButton.setColorFilter(Color.rgb(200, 200, 200));
+            mFavoriteButton.setRippleColor(Color.rgb(255,215,0));
         }
+    }
+
+    /** Set neighbour's information in the fields
+     *
+     * @param neighbour
+     */
+    private void setNeighbourInfo(Neighbour neighbour){
+        mNeighbourName.setText(neighbour.getName());
+        mNeighbourNameInfo.setText(neighbour.getName());
+        Glide.with(this).load(neighbour.getAvatarUrl()).into(mNeighbourAvatar);
+        String webUrl = ENTREVOISINS_WEB + neighbour.getName().toLowerCase();
+        mNeighbourWeb.setText(webUrl);
+        mNeighbourDescription.setText(NEIGHBOUR_DESCRIPTION);
     }
 }

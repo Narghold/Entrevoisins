@@ -85,7 +85,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="12dp"
-                    android:textColor="#000000"
+                    android:textColor="#2F4F4F"
                     android:textSize="25sp" />
 
                 <View
@@ -105,7 +105,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginHorizontal="12dp"
-                        android:tint="#c8c8c8"
+                        android:tint="#FC80AC"
                         app:srcCompat="@drawable/ic_location_on_black_24dp" />
 
                     <TextView
@@ -113,7 +113,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="2 Rue de ...."
-                        android:textColor="#c8c8c8"
+                        android:textColor="#727272"
                         android:textSize="15sp" />
 
                 </LinearLayout>
@@ -130,7 +130,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginHorizontal="12dp"
-                        android:tint="#c8c8c8"
+                        android:tint="#FC80AC"
                         app:srcCompat="@drawable/ic_local_phone_black_24dp" />
 
                     <TextView
@@ -138,7 +138,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="+33 6 52 46 46 46"
-                        android:textColor="#c8c8c8"
+                        android:textColor="#727272"
                         android:textSize="15sp" />
 
                 </LinearLayout>
@@ -155,14 +155,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginHorizontal="12dp"
-                        android:tint="#c8c8c8"
+                        android:tint="#FC80AC"
                         app:srcCompat="@drawable/ic_language_black_24dp" />
 
                     <TextView
                         android:id="@+id/neighbour_web"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#c8c8c8"
+                        android:textColor="#727272"
                         android:textSize="15sp" />
                 </LinearLayout>
 
@@ -196,7 +196,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="12dp"
                     android:text="@string/about_me_title"
-                    android:textColor="#000000"
+                    android:textColor="#2F4F4F"
                     android:textSize="25sp" />
 
                 <View
@@ -209,7 +209,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="12dp"
-                    android:textColor="#c8c8c8"
+                    android:textColor="#727272"
                     android:textSize="15sp" />
 
 
