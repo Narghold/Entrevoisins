@@ -1,5 +1,9 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Parcelable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +24,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
 
 public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeighbourRecyclerViewAdapter.ViewHolder> {
 
@@ -51,6 +56,20 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour));
             }
         });
+
+        //Set OnClickListener on Users
+        holder.mNeighbourUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Bundle
+                Bundle neighbourInfo = new Bundle();
+                neighbourInfo.putParcelable(NeighbourActivity.BUNDLE_NEIGHBOUR_KEY , neighbour);
+
+                Intent neighbourActivity = new Intent(view.getContext() , NeighbourActivity.class);
+                neighbourActivity.putExtras(neighbourInfo);
+                view.getContext().startActivity(neighbourActivity);
+            }
+        });
     }
 
     @Override
@@ -59,6 +78,8 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.item_list_user)
+        public ConstraintLayout mNeighbourUser;
         @BindView(R.id.item_list_avatar)
         public ImageView mNeighbourAvatar;
         @BindView(R.id.item_list_name)
