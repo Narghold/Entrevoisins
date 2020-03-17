@@ -84,7 +84,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="#EAEEEF" />
+                    android:background="#EAEEEF"/>
                 <TextView
                     android:id="@+id/neighbour_adress"
                     android:layout_width="match_parent"
@@ -92,7 +92,7 @@
                     android:text="@string/neighbour_location"
                     android:textColor="#727272"
                     android:textSize="15sp"
-                    android:layout_margin="12dp"
+                    android:layout_margin="8dp"
                     android:drawableStart="@drawable/ic_location_on_black_24dp"
                     android:drawablePadding="12dp"
                     android:drawableTint="#FC80AC"/>
@@ -103,7 +103,7 @@
                     android:text="@string/neighbour_phone_number"
                     android:textColor="#727272"
                     android:textSize="15sp"
-                    android:layout_margin="12dp"
+                    android:layout_margin="8dp"
                     android:drawableStart="@drawable/ic_local_phone_black_24dp"
                     android:drawablePadding="12dp"
                     android:drawableTint="#FC80AC"/>
@@ -113,7 +113,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#727272"
                     android:textSize="15sp"
-                    android:layout_margin="12dp"
+                    android:layout_margin="8dp"
                     android:drawableStart="@drawable/ic_language_black_24dp"
                     android:drawablePadding="12dp"
                     android:drawableTint="#FC80AC"/>
@@ -154,11 +154,9 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="12dp"
                     android:textColor="#727272"
-                    android:textSize="15sp" />
+                    android:justificationMode="inter_word"
+                    android:textSize="15sp"/>
             </LinearLayout>
         </android.support.v7.widget.CardView>
-
     </android.support.constraint.ConstraintLayout>
-
-
 </android.support.constraint.ConstraintLayout>

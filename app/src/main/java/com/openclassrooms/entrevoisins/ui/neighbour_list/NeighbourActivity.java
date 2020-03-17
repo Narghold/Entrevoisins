@@ -25,7 +25,6 @@ public class NeighbourActivity extends AppCompatActivity {
 
     //Lorem Ipsum
     private final static String NEIGHBOUR_DESCRIPTION = "Utque aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existimans factum aut cogitatum, insontium caedibus fecit victoriam luctuosam.";
-
     private final static String ENTREVOISINS_WEB = "www.entrevoisins.com/"; //Entrevoisins.com
 
     @Override
@@ -52,7 +51,7 @@ public class NeighbourActivity extends AppCompatActivity {
         setIcon(mNeighbour);
 
         //TODO Verify if neighbour is in favorite tab
-        
+
         //OnClickListener
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
