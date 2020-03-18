@@ -12,10 +12,12 @@ import android.view.ViewGroup;
 
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
+import com.openclassrooms.entrevoisins.events.AddFavoriteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.FavoriteApiService;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.util.List;
 
@@ -30,6 +32,8 @@ public class FavoriteFragment extends Fragment {
     private RecyclerView mRecyclerView;
 
     public List<Neighbour> mFavorites;
+
+    MyFavoritesRecyclerViewAdapter mFavoriteAdapter;
 
     public static FavoriteFragment newInstance() {
         FavoriteFragment fragment = new FavoriteFragment();
@@ -55,18 +59,26 @@ public class FavoriteFragment extends Fragment {
     }
 
     private void initList() {
-        mFavorites = FavoriteApiService.getNeighbours();
-        mRecyclerView.setAdapter(new MyFavoritesRecyclerViewAdapter(mFavorites));
+        mFavorites = mApiService.getNeighbours();
+        mFavoriteAdapter  = new MyFavoritesRecyclerViewAdapter(mFavorites);
+        mRecyclerView.setAdapter(mFavoriteAdapter);
     }
 
     @Override
     public void onStart() {
         super.onStart();
+        EventBus.getDefault().register(this);
     }
 
     @Override
     public void onStop() {
         super.onStop();
         EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe
+    public void addFavoriteNeighbour(AddFavoriteNeighbourEvent event) {
+        mApiService.addFavNeighbour(event.neighbour);
+        mFavoriteAdapter.setData(mFavorites);
     }
 }

@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.model.Neighbour;
+import com.openclassrooms.entrevoisins.service.FavoriteApiService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,7 @@ import butterknife.ButterKnife;
 
 public class MyFavoritesRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoritesRecyclerViewAdapter.ViewHolder> {
 
-    private List<Neighbour> mFavoriteNeighbour;
+    protected List<Neighbour> mFavoriteNeighbour;
 
     public MyFavoritesRecyclerViewAdapter(List<Neighbour> items) {
         mFavoriteNeighbour = items;
@@ -62,7 +63,7 @@ public class MyFavoritesRecyclerViewAdapter extends RecyclerView.Adapter<MyFavor
 
     @Override
     public int getItemCount() {
-        mFavoriteNeighbour  = new ArrayList<>();
+        //mFavoriteNeighbour  = new ArrayList<>();
         return mFavoriteNeighbour.size();
     }
 
@@ -78,5 +79,10 @@ public class MyFavoritesRecyclerViewAdapter extends RecyclerView.Adapter<MyFavor
             super(view);
             ButterKnife.bind(this, view);
         }
+    }
+
+    public void setData(List<Neighbour> data){
+        this.mFavoriteNeighbour = data;
+        notifyDataSetChanged();
     }
 }
