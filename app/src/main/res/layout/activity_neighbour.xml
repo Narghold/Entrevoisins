@@ -38,18 +38,19 @@
         android:tint="#FFFFFF"
         app:srcCompat="@drawable/ic_arrow_back_black_24dp"
         android:contentDescription="@string/arrow_back_desc"/>
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/favorite_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="320dp"
-        android:layout_marginEnd="35dp"
+        android:layout_marginEnd="30dp"
         android:backgroundTint="#ffffff"
         android:clickable="true"
         android:focusable="true"
-        app:rippleColor="#FFD700"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="#FFD700" />
     <android.support.constraint.ConstraintLayout
         android:id="@+id/neighbour_layout"
         android:layout_width="match_parent"
