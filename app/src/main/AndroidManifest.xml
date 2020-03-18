@@ -12,9 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.neighbour_list.MyFavoritesRecyclerViewAdapter"></activity>
         <activity
             android:name=".ui.neighbour_list.NeighbourActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.neighbour_list.ListNeighbourActivity"
             android:label="@string/app_name"

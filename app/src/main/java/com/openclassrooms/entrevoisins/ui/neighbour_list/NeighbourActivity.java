@@ -12,6 +12,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.model.Neighbour;
+import com.openclassrooms.entrevoisins.service.FavoriteApiService;
+
+import java.util.List;
 
 public class NeighbourActivity extends AppCompatActivity {
 
@@ -22,6 +25,8 @@ public class NeighbourActivity extends AppCompatActivity {
     private FloatingActionButton mFavoriteButton;
     private TextView mNeighbourWeb;
     private TextView mNeighbourDescription;
+
+    private List<Neighbour> mFavNeighbour = FavoriteApiService.getNeighbours();
 
     //Lorem Ipsum
     private final static String NEIGHBOUR_DESCRIPTION = "Utque aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existimans factum aut cogitatum, insontium caedibus fecit victoriam luctuosam.";

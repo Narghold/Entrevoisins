@@ -1,6 +1,8 @@
 package com.openclassrooms.entrevoisins.di;
 
 import com.openclassrooms.entrevoisins.service.DummyNeighbourApiService;
+import com.openclassrooms.entrevoisins.service.FavoriteApiService;
+import com.openclassrooms.entrevoisins.service.FavoriteNeighbourService;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
 /**
@@ -9,6 +11,7 @@ import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 public class DI {
 
     private static NeighbourApiService service = new DummyNeighbourApiService();
+    private static FavoriteApiService favService = new FavoriteNeighbourService();
 
     /**
      * Get an instance on @{@link NeighbourApiService}
@@ -25,4 +28,6 @@ public class DI {
     public static NeighbourApiService getNewInstanceApiService() {
         return new DummyNeighbourApiService();
     }
+
+    public static FavoriteApiService getFavoriteApiService(){ return favService; }
 }
