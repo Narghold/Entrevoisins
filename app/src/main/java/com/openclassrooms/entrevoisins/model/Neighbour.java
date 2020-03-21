@@ -32,7 +32,6 @@ public class Neighbour implements Parcelable {
         this.id = id;
         this.name = name;
         this.avatarUrl = avatarUrl;
-        this.isFavorite = false;
     }
 
     protected Neighbour(Parcel in) {
