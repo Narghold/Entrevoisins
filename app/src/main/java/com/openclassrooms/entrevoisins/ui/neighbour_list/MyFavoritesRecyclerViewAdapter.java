@@ -62,7 +62,7 @@ public class MyFavoritesRecyclerViewAdapter extends RecyclerView.Adapter<MyFavor
 
     @Override
     public int getItemCount() {
-        //mFavoriteNeighbour  = new ArrayList<>();
+        mFavoriteNeighbour  = new ArrayList<>();
         return mFavoriteNeighbour.size();
     }
 

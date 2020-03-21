@@ -13,15 +13,13 @@ import com.bumptech.glide.Glide;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.events.AddFavoriteNeighbourEvent;
+import com.openclassrooms.entrevoisins.events.RemoveFavoriteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.FavoriteApiService;
 
-<<<<<<< HEAD
-=======
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
->>>>>>> parent of 1e1252a... Back to version
 import java.util.List;
 
 public class DetailNeighbourActivity extends AppCompatActivity {
@@ -34,12 +32,8 @@ public class DetailNeighbourActivity extends AppCompatActivity {
     private TextView mNeighbourDescription;
 
     FavoriteApiService mApiService;
-<<<<<<< HEAD
 
-    private List<Neighbour> mFavNeighbour = FavoriteApiService.getNeighbours();
-=======
     public List<Neighbour> mFavoriteNeighbour = new ArrayList<>();
->>>>>>> parent of 1e1252a... Back to version
 
     //Final Strings
     protected final static String BUNDLE_NEIGHBOUR_KEY = "neighbour";
@@ -87,13 +81,11 @@ public class DetailNeighbourActivity extends AppCompatActivity {
                 if (mNeighbour.getFavorite()) {
                     mNeighbour.setFavorite(false);
                     mApiService.removeFavNeighbour(mNeighbour);
+                    //EventBus.getDefault().post(new RemoveFavoriteNeighbourEvent(mNeighbour));
                 } else {
                     mNeighbour.setFavorite(true);
-<<<<<<< HEAD
                     mApiService.addFavNeighbour(mNeighbour);
-=======
-                    EventBus.getDefault().post(new AddFavoriteNeighbourEvent(mNeighbour));
->>>>>>> parent of 1e1252a... Back to version
+                    //EventBus.getDefault().post(new AddFavoriteNeighbourEvent(mNeighbour));
                 }
                 setIcon(mNeighbour);
             }
