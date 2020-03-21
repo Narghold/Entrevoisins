@@ -15,8 +15,6 @@ import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.FavoriteApiService;
 
-import org.greenrobot.eventbus.EventBus;
-
 import java.util.List;
 
 /**
@@ -67,6 +65,11 @@ public class FavoriteFragment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-        EventBus.getDefault().unregister(this);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        initList();
     }
 }

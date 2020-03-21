@@ -14,12 +14,6 @@ import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.FavoriteApiService;
 
-<<<<<<< HEAD:app/src/main/java/com/openclassrooms/entrevoisins/ui/neighbour_list/DetailNeighbourActivity.java
-import org.greenrobot.eventbus.EventBus;
-
-import java.util.ArrayList;
-=======
->>>>>>> parent of 4ffab77... EventBus:app/src/main/java/com/openclassrooms/entrevoisins/ui/neighbour_list/NeighbourActivity.java
 import java.util.List;
 
 public class DetailNeighbourActivity extends AppCompatActivity {
@@ -31,6 +25,8 @@ public class DetailNeighbourActivity extends AppCompatActivity {
     private FloatingActionButton mFavoriteButton;
     private TextView mNeighbourWeb;
     private TextView mNeighbourDescription;
+
+    FavoriteApiService mApiService;
 
     private List<Neighbour> mFavNeighbour = FavoriteApiService.getNeighbours();
 
@@ -76,8 +72,10 @@ public class DetailNeighbourActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (mNeighbour.getFavorite()) {
                     mNeighbour.setFavorite(false);
+                    mApiService.removeFavNeighbour(mNeighbour);
                 } else {
                     mNeighbour.setFavorite(true);
+                    mApiService.addFavNeighbour(mNeighbour);
                 }
                 setIcon(mNeighbour);
             }
