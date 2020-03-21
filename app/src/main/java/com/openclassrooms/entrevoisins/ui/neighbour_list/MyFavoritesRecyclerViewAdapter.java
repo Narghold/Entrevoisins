@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
 
 public class MyFavoritesRecyclerViewAdapter extends RecyclerView.Adapter<MyFavoritesRecyclerViewAdapter.ViewHolder> {
 
-    protected List<Neighbour> mFavoriteNeighbour;
+    private List<Neighbour> mFavoriteNeighbour;
 
     public MyFavoritesRecyclerViewAdapter(List<Neighbour> items) {
         mFavoriteNeighbour = items;
@@ -61,7 +61,7 @@ public class MyFavoritesRecyclerViewAdapter extends RecyclerView.Adapter<MyFavor
 
     @Override
     public int getItemCount() {
-        //mFavoriteNeighbour  = new ArrayList<>();
+        mFavoriteNeighbour  = new ArrayList<>();
         return mFavoriteNeighbour.size();
     }
 
@@ -77,10 +77,5 @@ public class MyFavoritesRecyclerViewAdapter extends RecyclerView.Adapter<MyFavor
             super(view);
             ButterKnife.bind(this, view);
         }
-    }
-
-    public void setData(List<Neighbour> data){
-        this.mFavoriteNeighbour = data;
-        notifyDataSetChanged();
     }
 }

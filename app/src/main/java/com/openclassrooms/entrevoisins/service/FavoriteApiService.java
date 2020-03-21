@@ -11,7 +11,9 @@ public interface FavoriteApiService{
      *
      * @return {@link List}
      */
-    List<Neighbour> getNeighbours();
+    static List<Neighbour> getNeighbours() {
+        return null;
+    }
 
     /**
      * Add a neighbour to favorites

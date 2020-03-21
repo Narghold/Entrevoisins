@@ -11,18 +11,20 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.openclassrooms.entrevoisins.R;
-import com.openclassrooms.entrevoisins.di.DI;
-import com.openclassrooms.entrevoisins.events.AddFavoriteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.FavoriteApiService;
 
+<<<<<<< HEAD:app/src/main/java/com/openclassrooms/entrevoisins/ui/neighbour_list/DetailNeighbourActivity.java
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
+=======
+>>>>>>> parent of 4ffab77... EventBus:app/src/main/java/com/openclassrooms/entrevoisins/ui/neighbour_list/NeighbourActivity.java
 import java.util.List;
 
 public class DetailNeighbourActivity extends AppCompatActivity {
 
+    protected final static String BUNDLE_NEIGHBOUR_KEY = "neighbour";
     private TextView mNeighbourName;
     private ImageView mNeighbourAvatar;
     private TextView mNeighbourNameInfo;
@@ -30,11 +32,9 @@ public class DetailNeighbourActivity extends AppCompatActivity {
     private TextView mNeighbourWeb;
     private TextView mNeighbourDescription;
 
-    FavoriteApiService mApiService;
-    public List<Neighbour> mFavoriteNeighbour = new ArrayList<>();
+    private List<Neighbour> mFavNeighbour = FavoriteApiService.getNeighbours();
 
-    //Final Strings
-    protected final static String BUNDLE_NEIGHBOUR_KEY = "neighbour";
+    //Lorem Ipsum
     private final static String NEIGHBOUR_DESCRIPTION = "Utque aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existimans factum aut cogitatum, insontium caedibus fecit victoriam luctuosam.";
     private final static String ENTREVOISINS_WEB = "www.entrevoisins.com/"; //Entrevoisins.com
 
@@ -42,7 +42,6 @@ public class DetailNeighbourActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_neighbour);
-        mApiService = DI.getFavoriteApiService();
 
         //findViewById
         mNeighbourName = findViewById(R.id.neighbour_name);
@@ -60,7 +59,6 @@ public class DetailNeighbourActivity extends AppCompatActivity {
 
         assert mNeighbour != null;
         setNeighbourInfo(mNeighbour);
-        //verifyIfFavorite(mNeighbour);
         setIcon(mNeighbour);
 
         //TODO Verify if neighbour is in favorite tab
@@ -80,7 +78,6 @@ public class DetailNeighbourActivity extends AppCompatActivity {
                     mNeighbour.setFavorite(false);
                 } else {
                     mNeighbour.setFavorite(true);
-                    EventBus.getDefault().post(new AddFavoriteNeighbourEvent(mNeighbour));
                 }
                 setIcon(mNeighbour);
             }
