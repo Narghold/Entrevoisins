@@ -17,12 +17,11 @@ import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.FavoriteApiService;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class NeighbourActivity extends AppCompatActivity {
+public class DetailNeighbourActivity extends AppCompatActivity {
 
     private TextView mNeighbourName;
     private ImageView mNeighbourAvatar;
@@ -70,7 +69,7 @@ public class NeighbourActivity extends AppCompatActivity {
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NeighbourActivity.this.finish();
+                DetailNeighbourActivity.this.finish();
             }
         });
 

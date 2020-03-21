@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ui.neighbour_list.MyFavoritesRecyclerViewAdapter"></activity>
         <activity
-            android:name=".ui.neighbour_list.NeighbourActivity"
+            android:name=".ui.neighbour_list.DetailNeighbourActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.neighbour_list.ListNeighbourActivity"

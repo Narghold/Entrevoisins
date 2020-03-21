@@ -2,7 +2,6 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -63,9 +62,9 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
             public void onClick(View view) {
                 //Bundle
                 Bundle neighbourInfo = new Bundle();
-                neighbourInfo.putParcelable(NeighbourActivity.BUNDLE_NEIGHBOUR_KEY , neighbour);
+                neighbourInfo.putParcelable(DetailNeighbourActivity.BUNDLE_NEIGHBOUR_KEY , neighbour);
 
-                Intent neighbourActivity = new Intent(view.getContext() , NeighbourActivity.class);
+                Intent neighbourActivity = new Intent(view.getContext() , DetailNeighbourActivity.class);
                 neighbourActivity.putExtras(neighbourInfo);
                 view.getContext().startActivity(neighbourActivity);
             }

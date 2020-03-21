@@ -14,9 +14,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.model.Neighbour;
-import com.openclassrooms.entrevoisins.service.FavoriteApiService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -52,9 +50,9 @@ public class MyFavoritesRecyclerViewAdapter extends RecyclerView.Adapter<MyFavor
             public void onClick(View view) {
                 //Bundle
                 Bundle neighbourInfo = new Bundle();
-                neighbourInfo.putParcelable(NeighbourActivity.BUNDLE_NEIGHBOUR_KEY, neighbour);
+                neighbourInfo.putParcelable(DetailNeighbourActivity.BUNDLE_NEIGHBOUR_KEY, neighbour);
 
-                Intent neighbourActivity = new Intent(view.getContext(), NeighbourActivity.class);
+                Intent neighbourActivity = new Intent(view.getContext(), DetailNeighbourActivity.class);
                 neighbourActivity.putExtras(neighbourInfo);
                 view.getContext().startActivity(neighbourActivity);
             }
