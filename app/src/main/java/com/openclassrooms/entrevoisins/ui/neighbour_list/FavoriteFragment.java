@@ -12,13 +12,11 @@ import android.view.ViewGroup;
 
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
-import com.openclassrooms.entrevoisins.events.AddFavoriteNeighbourEvent;
-import com.openclassrooms.entrevoisins.events.RemoveFavoriteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.FavoriteApiService;
+import com.openclassrooms.entrevoisins.service.FavoriteNeighbourService;
 
-import org.greenrobot.eventbus.Subscribe;
-
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,8 +26,9 @@ import java.util.List;
  */
 public class FavoriteFragment extends Fragment {
 
-    public  List<Neighbour> mFavorites;
-    private FavoriteApiService mApiService;
+    public static ArrayList<Neighbour> mFavorites;
+    private static FavoriteNeighbourService mApiService;
+    //private FavoriteApiService mApiService;
     private RecyclerView mRecyclerView;
 
     MyFavoritesRecyclerViewAdapter mFavoriteAdapter;
@@ -42,7 +41,7 @@ public class FavoriteFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mApiService = DI.getFavoriteApiService();
+        mApiService = (FavoriteNeighbourService) DI.getFavoriteApiService();
     }
 
     @Override
@@ -58,7 +57,7 @@ public class FavoriteFragment extends Fragment {
     }
 
     private void initList() {
-        mFavorites = mApiService.getNeighbours();
+        mFavorites = (ArrayList<Neighbour>) mApiService.getNeighbours();
         mFavoriteAdapter  = new MyFavoritesRecyclerViewAdapter(mFavorites);
         mRecyclerView.setAdapter(mFavoriteAdapter);
     }
@@ -67,7 +66,6 @@ public class FavoriteFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        //EventBus.getDefault().register(this);
     }
 
     @Override
@@ -81,15 +79,11 @@ public class FavoriteFragment extends Fragment {
         initList();
     }
 
-    @Subscribe
-    public void addFavoriteNeighbour(AddFavoriteNeighbourEvent event) {
-        mApiService.addFavNeighbour(event.neighbour);
-        mFavoriteAdapter.setData(mFavorites);
+    public static void addFavoriteNeighbour(Neighbour neighbour){
+        mApiService.addFavNeighbour(neighbour);
     }
 
-    @Subscribe
-    public void removeFavoriteNeighbour(RemoveFavoriteNeighbourEvent event) {
-        mApiService.removeFavNeighbour(event.neighbour);
-        mFavoriteAdapter.setData(mFavorites);
+    public static void removeFavoriteNeighbour(Neighbour neighbour){
+        mApiService.removeFavNeighbour(neighbour);
     }
 }

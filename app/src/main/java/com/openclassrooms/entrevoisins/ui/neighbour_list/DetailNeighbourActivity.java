@@ -12,12 +12,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
-import com.openclassrooms.entrevoisins.events.AddFavoriteNeighbourEvent;
-import com.openclassrooms.entrevoisins.events.RemoveFavoriteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.FavoriteApiService;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,12 +76,15 @@ public class DetailNeighbourActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (mNeighbour.getFavorite()) {
                     mNeighbour.setFavorite(false);
-                    mApiService.removeFavNeighbour(mNeighbour);
-                    //EventBus.getDefault().post(new RemoveFavoriteNeighbourEvent(mNeighbour));
+                    //mApiService.removeFavNeighbour(mNeighbour);
+                    mFavoriteNeighbour.remove(mNeighbour);
+                    FavoriteFragment.addFavoriteNeighbour(mNeighbour);
+
                 } else {
                     mNeighbour.setFavorite(true);
-                    mApiService.addFavNeighbour(mNeighbour);
-                    //EventBus.getDefault().post(new AddFavoriteNeighbourEvent(mNeighbour));
+                    //mApiService.addFavNeighbour(mNeighbour);
+                    mFavoriteNeighbour.add(mNeighbour);
+                    FavoriteFragment.removeFavoriteNeighbour(mNeighbour);
                 }
                 setIcon(mNeighbour);
             }
