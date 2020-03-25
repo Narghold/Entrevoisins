@@ -16,6 +16,7 @@ import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.FavoriteApiService;
 import com.openclassrooms.entrevoisins.service.FavoriteNeighbourService;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,12 +27,10 @@ import java.util.List;
  */
 public class FavoriteFragment extends Fragment {
 
-    public static ArrayList<Neighbour> mFavorites;
     private static FavoriteNeighbourService mApiService;
-    //private FavoriteApiService mApiService;
     private RecyclerView mRecyclerView;
 
-    MyFavoritesRecyclerViewAdapter mFavoriteAdapter;
+    private MyFavoritesRecyclerViewAdapter mFavoriteAdapter;
 
     public static FavoriteFragment newInstance() {
         FavoriteFragment fragment = new FavoriteFragment();
@@ -57,33 +56,16 @@ public class FavoriteFragment extends Fragment {
     }
 
     private void initList() {
-        mFavorites = (ArrayList<Neighbour>) mApiService.getNeighbours();
+        List<Neighbour> mFavorites = mApiService.getNeighbours();
         mFavoriteAdapter  = new MyFavoritesRecyclerViewAdapter(mFavorites);
         mRecyclerView.setAdapter(mFavoriteAdapter);
     }
 
 
     @Override
-    public void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
-        initList();
-    }
-
-    public static void addFavoriteNeighbour(Neighbour neighbour){
-        mApiService.addFavNeighbour(neighbour);
-    }
-
-    public static void removeFavoriteNeighbour(Neighbour neighbour){
-        mApiService.removeFavNeighbour(neighbour);
+        List<Neighbour> favoriteList = mApiService.getNeighbours();
+        mFavoriteAdapter.setData(favoriteList);
     }
 }

@@ -34,7 +34,7 @@ public class Neighbour implements Parcelable {
         this.avatarUrl = avatarUrl;
     }
 
-    protected Neighbour(Parcel in) {
+    private Neighbour(Parcel in) {
         if (in.readByte() == 0) {
             id = null;
         } else {

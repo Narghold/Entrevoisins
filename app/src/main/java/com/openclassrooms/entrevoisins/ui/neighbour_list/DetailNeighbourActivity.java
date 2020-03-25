@@ -18,7 +18,7 @@ import com.openclassrooms.entrevoisins.service.FavoriteApiService;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DetailNeighbourActivity extends AppCompatActivity {
+public class  DetailNeighbourActivity extends AppCompatActivity {
 
     private TextView mNeighbourName;
     private ImageView mNeighbourAvatar;
@@ -27,12 +27,10 @@ public class DetailNeighbourActivity extends AppCompatActivity {
     private TextView mNeighbourWeb;
     private TextView mNeighbourDescription;
 
-    FavoriteApiService mApiService;
-
-    public List<Neighbour> mFavoriteNeighbour = new ArrayList<>();
+    private FavoriteApiService mApiService;
 
     //Final Strings
-    protected final static String BUNDLE_NEIGHBOUR_KEY = "neighbour";
+    final static String BUNDLE_NEIGHBOUR_KEY = "neighbour";
     private final static String NEIGHBOUR_DESCRIPTION = "Utque aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existimans factum aut cogitatum, insontium caedibus fecit victoriam luctuosam.";
     private final static String ENTREVOISINS_WEB = "www.entrevoisins.com/"; //Entrevoisins.com
 
@@ -58,10 +56,7 @@ public class DetailNeighbourActivity extends AppCompatActivity {
 
         assert mNeighbour != null;
         setNeighbourInfo(mNeighbour);
-        //verifyIfFavorite(mNeighbour);
         setIcon(mNeighbour);
-
-        //TODO Verify if neighbour is in favorite tab
 
         //OnClickListener
         mBackButton.setOnClickListener(new View.OnClickListener() {
@@ -76,15 +71,11 @@ public class DetailNeighbourActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (mNeighbour.getFavorite()) {
                     mNeighbour.setFavorite(false);
-                    //mApiService.removeFavNeighbour(mNeighbour);
-                    mFavoriteNeighbour.remove(mNeighbour);
-                    FavoriteFragment.addFavoriteNeighbour(mNeighbour);
+                    mApiService.removeFavNeighbour(mNeighbour);
 
                 } else {
                     mNeighbour.setFavorite(true);
-                    //mApiService.addFavNeighbour(mNeighbour);
-                    mFavoriteNeighbour.add(mNeighbour);
-                    FavoriteFragment.removeFavoriteNeighbour(mNeighbour);
+                    mApiService.addFavNeighbour(mNeighbour);
                 }
                 setIcon(mNeighbour);
             }
