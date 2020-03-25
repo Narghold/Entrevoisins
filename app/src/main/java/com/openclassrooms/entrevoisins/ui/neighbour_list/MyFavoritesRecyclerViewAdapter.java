@@ -15,7 +15,6 @@ import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -79,6 +78,10 @@ public class MyFavoritesRecyclerViewAdapter extends RecyclerView.Adapter<MyFavor
         }
     }
 
+    /**
+     * Update the favorite neighbour list
+     * @param data
+     */
     public void setData(List<Neighbour> data){
         this.mFavoriteNeighbour = data;
         notifyDataSetChanged();
