@@ -45,17 +45,14 @@ public class MyFavoritesRecyclerViewAdapter extends RecyclerView.Adapter<MyFavor
                 .into(holder.mNeighbourAvatar);
 
         //Set OnClickListener on Users
-        holder.mNeighbourUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Bundle
-                Bundle neighbourInfo = new Bundle();
-                neighbourInfo.putParcelable(DetailNeighbourActivity.BUNDLE_NEIGHBOUR_KEY, neighbour);
+        holder.mNeighbourUser.setOnClickListener(view -> {
+            //Bundle
+            Bundle neighbourInfo = new Bundle();
+            neighbourInfo.putParcelable(DetailNeighbourActivity.BUNDLE_NEIGHBOUR_KEY, neighbour);
 
-                Intent neighbourActivity = new Intent(view.getContext(), DetailNeighbourActivity.class);
-                neighbourActivity.putExtras(neighbourInfo);
-                view.getContext().startActivity(neighbourActivity);
-            }
+            Intent neighbourActivity = new Intent(view.getContext(), DetailNeighbourActivity.class);
+            neighbourActivity.putExtras(neighbourInfo);
+            view.getContext().startActivity(neighbourActivity);
         });
     }
 

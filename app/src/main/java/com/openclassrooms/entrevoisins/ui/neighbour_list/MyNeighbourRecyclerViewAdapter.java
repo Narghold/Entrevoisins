@@ -49,25 +49,17 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 .apply(RequestOptions.circleCropTransform())
                 .into(holder.mNeighbourAvatar);
 
-        holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour));
-            }
-        });
+        holder.mDeleteButton.setOnClickListener(v -> EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour)));
 
         //Set OnClickListener on Users
-        holder.mNeighbourUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Bundle
-                Bundle neighbourInfo = new Bundle();
-                neighbourInfo.putParcelable(DetailNeighbourActivity.BUNDLE_NEIGHBOUR_KEY , neighbour);
+        holder.mNeighbourUser.setOnClickListener(view -> {
+            //Bundle
+            Bundle neighbourInfo = new Bundle();
+            neighbourInfo.putParcelable(DetailNeighbourActivity.BUNDLE_NEIGHBOUR_KEY , neighbour);
 
-                Intent neighbourActivity = new Intent(view.getContext() , DetailNeighbourActivity.class);
-                neighbourActivity.putExtras(neighbourInfo);
-                view.getContext().startActivity(neighbourActivity);
-            }
+            Intent neighbourActivity = new Intent(view.getContext() , DetailNeighbourActivity.class);
+            neighbourActivity.putExtras(neighbourInfo);
+            view.getContext().startActivity(neighbourActivity);
         });
     }
 

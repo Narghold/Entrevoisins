@@ -15,9 +15,6 @@ import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.FavoriteApiService;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class  DetailNeighbourActivity extends AppCompatActivity {
 
     private TextView mNeighbourName;
@@ -33,6 +30,7 @@ public class  DetailNeighbourActivity extends AppCompatActivity {
     final static String BUNDLE_NEIGHBOUR_KEY = "neighbour";
     private final static String NEIGHBOUR_DESCRIPTION = "Utque aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existimans factum aut cogitatum, insontium caedibus fecit victoriam luctuosam.";
     private final static String ENTREVOISINS_WEB = "www.entrevoisins.com/"; //Entrevoisins.com
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,26 +57,18 @@ public class  DetailNeighbourActivity extends AppCompatActivity {
         setIcon(mNeighbour);
 
         //OnClickListener
-        mBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DetailNeighbourActivity.this.finish();
-            }
-        });
+        mBackButton.setOnClickListener(view -> DetailNeighbourActivity.this.finish());
 
-        mFavoriteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mNeighbour.getFavorite()) {
-                    mNeighbour.setFavorite(false);
-                    mApiService.removeFavNeighbour(mNeighbour);
+        mFavoriteButton.setOnClickListener(view -> {
+            if (mNeighbour.getFavorite()) {
+                mNeighbour.setFavorite(false);
+                mApiService.removeFavNeighbour(mNeighbour);
 
-                } else {
-                    mNeighbour.setFavorite(true);
-                    mApiService.addFavNeighbour(mNeighbour);
-                }
-                setIcon(mNeighbour);
+            } else {
+                mNeighbour.setFavorite(true);
+                mApiService.addFavNeighbour(mNeighbour);
             }
+            setIcon(mNeighbour);
         });
     }
 
@@ -98,8 +88,8 @@ public class  DetailNeighbourActivity extends AppCompatActivity {
         }
     }
 
-    /** Set neighbour's information in the fields
-     *
+    /**
+     * Set neighbour's information in the fields
      * @param neighbour
      */
     private void setNeighbourInfo(Neighbour neighbour){

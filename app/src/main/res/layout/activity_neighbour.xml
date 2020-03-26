@@ -26,6 +26,7 @@
         android:textSize="33sp"
         app:layout_constraintBottom_toBottomOf="@+id/neighbour_avatar"
         app:layout_constraintStart_toStartOf="@+id/neighbour_avatar" />
+
     <ImageButton
         android:id="@+id/neighbour_back_btn"
         android:layout_width="30dp"
@@ -33,11 +34,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@null"
+        android:contentDescription="@string/arrow_back_desc"
+        android:tint="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:tint="#FFFFFF"
-        app:srcCompat="@drawable/ic_arrow_back_black_24dp"
-        android:contentDescription="@string/arrow_back_desc"/>
+        app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/favorite_btn"
