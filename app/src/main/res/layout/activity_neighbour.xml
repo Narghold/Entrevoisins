@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EAEEEF"
-    tools:context=".ui.neighbour_list.DetailNeighbourActivity">
+    tools:context=".ui.neighbour_list.DetailNeighbourActivity"
+    android:id="@+id/detail_neighbour_activity">
     <ImageView
         android:id="@+id/neighbour_avatar"
         android:layout_width="match_parent"
