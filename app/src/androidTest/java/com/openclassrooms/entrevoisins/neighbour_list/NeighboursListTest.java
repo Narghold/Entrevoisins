@@ -1,6 +1,6 @@
 package com.openclassrooms.entrevoisins.neighbour_list;
 
-import androidx.test.espresso.ViewAction;
+import androidx.test.espresso.Espresso;
 import androidx.test.espresso.contrib.RecyclerViewActions;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.rule.ActivityTestRule;
@@ -17,10 +17,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.swipeLeft;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.assertThat;
 import static androidx.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
 import static org.hamcrest.core.IsNull.notNullValue;
 
@@ -81,8 +84,25 @@ public class NeighboursListTest {
         // Verify if the item is visible
         onView(ViewMatchers.withId(R.id.list_neighbour)).check(matches(isDisplayed()));
         // When perform a click on third item
-        onView(ViewMatchers.withId(R.id.list_neighbour)).perform((ViewAction) RecyclerViewActions.actionOnItemAtPosition(2, new ClickNeighbourViewAction()));
+        onView(ViewMatchers.withId(R.id.list_neighbour)).perform(RecyclerViewActions.actionOnItemAtPosition(2, new ClickNeighbourViewAction()));
         // Then open the screen details of the neighbour
         onView(ViewMatchers.withId(R.id.detail_neighbour_activity)).check(matches(isDisplayed()));
+    }
+
+    /**
+     *  Verify if FavoriteTab is displaying Favorite Neighbours
+     */
+    @Test
+    public void myNeighbourList_addFavoriteAction(){
+        // Perform a click on the 1st neighbour
+        onView(withId(R.id.list_neighbour)).perform(RecyclerViewActions.actionOnItemAtPosition(0 , new ClickNeighbourViewAction()));
+        // Perform a click on the favorite button
+        onView(withId(R.id.favorite_btn)).perform(click());
+        // Return to last activity
+        Espresso.pressBack();
+        // Go to the FavoriteTab
+        onView(withId(R.id.main_content)).perform(swipeLeft());
+        // Verify if favorite tab isn't empty
+        onView(ViewMatchers.withId(R.id.list_favorite)).check(matches(hasMinimumChildCount(1)));
     }
 }

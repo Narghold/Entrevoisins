@@ -35,6 +35,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@null"
+        android:clickable="true"
+        android:focusable="true"
         android:contentDescription="@string/arrow_back_desc"
         android:tint="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
