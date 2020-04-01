@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -41,7 +41,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/favorite_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:rippleColor="#FFD700" />
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/neighbour_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -62,7 +62,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/neighbour_avatar">
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/neighbour_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -122,8 +122,8 @@
                     android:drawablePadding="12dp"
                     android:drawableTint="#FC80AC"/>
             </LinearLayout>
-        </android.support.v7.widget.CardView>
-        <android.support.v7.widget.CardView
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
             android:id="@+id/neighbour_about"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -162,6 +162,6 @@
                     android:justificationMode="inter_word"
                     android:textSize="15sp"/>
             </LinearLayout>
-        </android.support.v7.widget.CardView>
-    </android.support.constraint.ConstraintLayout>
-</android.support.constraint.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

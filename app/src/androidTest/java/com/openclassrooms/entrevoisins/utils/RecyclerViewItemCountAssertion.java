@@ -1,8 +1,8 @@
 package com.openclassrooms.entrevoisins.utils;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.test.espresso.NoMatchingViewException;
 import androidx.test.espresso.ViewAssertion;
 
