@@ -17,7 +17,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.assertThat;
 import static androidx.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
@@ -63,8 +62,8 @@ public class NeighboursListTest {
     public void myNeighboursList_deleteAction_shouldRemoveItem() {
         // Given : We remove the element at position 2
         onView(ViewMatchers.withId(R.id.list_neighbour)).check(withItemCount(ITEMS_COUNT));
-        // Make sure that the item is visible
-        onView(ViewMatchers.withId(R.id.list_neighbour)).perform(scrollTo());
+        // Verify if the item is visible
+        onView(ViewMatchers.withId(R.id.list_neighbour)).check(matches(isDisplayed()));
         // When perform a click on a delete icon
         onView(ViewMatchers.withId(R.id.list_neighbour))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(1 , new DeleteViewAction()));
@@ -79,6 +78,8 @@ public class NeighboursListTest {
     public void myNeighbourList_clickAction_shouldLaunchDetail(){
         // Given : Want to see the details at position 3
         onView(ViewMatchers.withId(R.id.list_neighbour)).check(withItemCount(ITEMS_COUNT));
+        // Verify if the item is visible
+        onView(ViewMatchers.withId(R.id.list_neighbour)).check(matches(isDisplayed()));
         // When perform a click on third item
         onView(ViewMatchers.withId(R.id.list_neighbour)).perform((ViewAction) RecyclerViewActions.actionOnItemAtPosition(2, new ClickNeighbourViewAction()));
         // Then open the screen details of the neighbour
