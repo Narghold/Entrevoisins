@@ -1,4 +1,4 @@
-# <img src="C:\Users\Yann\Documents\GitHub\Entrevoisins\app\src\main\ic_launcher-web.png" alt="ic_launcher-web" style="zoom:20%;" /> Entrevoisins
+# <img src="C:\Users\Yann\Documents\GitHub\Entrevoisins\app\src\main\ic_launcher-web.png" style="zoom:25%;" /> Entrevoisins
 
 **<u>Présentation de l'application</u>** **:**
 
