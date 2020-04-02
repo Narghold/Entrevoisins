@@ -63,11 +63,11 @@ public class MyFavoritesRecyclerViewAdapter extends RecyclerView.Adapter<MyFavor
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.item_list_user)
+        @BindView(R.id.item_list_favorite)
         public ConstraintLayout mNeighbourUser;
-        @BindView(R.id.item_list_avatar)
+        @BindView(R.id.item_list_favorite_avatar)
         public ImageView mNeighbourAvatar;
-        @BindView(R.id.item_list_name)
+        @BindView(R.id.item_list_favorite_name)
         public TextView mNeighbourName;
 
         ViewHolder(View view) {

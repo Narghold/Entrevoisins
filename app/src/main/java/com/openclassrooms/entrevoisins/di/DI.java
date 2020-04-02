@@ -30,4 +30,8 @@ public class DI {
     }
 
     public static FavoriteApiService getFavoriteApiService(){ return favService; }
+
+    public static FavoriteApiService getNewInstanceFavoriteApiService(){
+        return new FavoriteNeighbourService();
+    }
 }

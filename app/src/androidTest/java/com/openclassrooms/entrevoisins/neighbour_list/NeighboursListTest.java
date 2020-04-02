@@ -1,6 +1,5 @@
 package com.openclassrooms.entrevoisins.neighbour_list;
 
-import androidx.test.espresso.Espresso;
 import androidx.test.espresso.contrib.RecyclerViewActions;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.rule.ActivityTestRule;
@@ -18,11 +17,13 @@ import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.pressBack;
 import static androidx.test.espresso.action.ViewActions.swipeLeft;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.assertThat;
 import static androidx.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.isRoot;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
 import static org.hamcrest.core.IsNull.notNullValue;
@@ -99,7 +100,7 @@ public class NeighboursListTest {
         // Perform a click on the favorite button
         onView(withId(R.id.favorite_btn)).perform(click());
         // Return to last activity
-        Espresso.pressBack();
+        onView(isRoot()).perform(pressBack());
         // Go to the FavoriteTab
         onView(withId(R.id.main_content)).perform(swipeLeft());
         // Verify if favorite tab isn't empty
