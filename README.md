@@ -1,4 +1,4 @@
-# <img src="./app/src/main/ic_launcher-web.png" style="zoom:20%;" /> Entrevoisins
+# <img src="./app/src/main/ic_launcher-web.png"/> Entrevoisins
 
 **<u>Présentation de l'application</u>** **:**
 
