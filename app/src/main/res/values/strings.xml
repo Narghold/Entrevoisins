@@ -11,8 +11,6 @@
     <!-- Hardcoded strings -->
     <string name="neighbour_location">2 Rue de .....</string>
     <string name="neighbour_phone_number">+33 6 99 99 99 99</string>
-    <string name="neighbour_web_url"></string>
+    <string name="neighbour_web_url" />
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
