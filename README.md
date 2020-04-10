@@ -1,4 +1,4 @@
-# <img src="./app/src/main/ic_launcher-web.png" style="zoom:25%;" /> Entrevoisins
+# <img src="./app/src/main/ic_launcher-web.png" style="width:100px;" /> Entrevoisins
 
 Application réalisée par **Dubois Yann** dans le cadre de la formation Développeur Android d'**OpenClassrooms**.
 
