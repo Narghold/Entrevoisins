@@ -1,4 +1,4 @@
-package com.openclassrooms.entrevoisins.neighbour_list;
+package com.openclassrooms.entrevoisins.neighbourList;
 
 import androidx.test.espresso.contrib.RecyclerViewActions;
 import androidx.test.espresso.matcher.ViewMatchers;

@@ -1,4 +1,4 @@
-package com.openclassrooms.entrevoisins.detail_neighbour;
+package com.openclassrooms.entrevoisins.detailNeighbour;
 
 import androidx.test.espresso.contrib.RecyclerViewActions;
 import androidx.test.rule.ActivityTestRule;
@@ -27,9 +27,6 @@ import static org.hamcrest.core.IsNull.notNullValue;
  */
 @RunWith(AndroidJUnit4.class)
 public class DetailNeighbourTest {
-
-    // This is fixed
-    private static int ITEMS_COUNT = 12;
 
     private ListNeighbourActivity mActivity;
 

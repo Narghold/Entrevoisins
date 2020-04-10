@@ -4,10 +4,6 @@
     <string name="tab_favorites_title">Favoris</string>
     <string name="about_me_title">À propos de moi</string>
 
-    <!-- contentDescription -->
-    <string name="avatar_desc">Avatar image of user</string>
-    <string name="arrow_back_desc">Arrow back</string>
-
     <!-- Hardcoded strings -->
     <string name="neighbour_location">2 Rue de .....</string>
     <string name="neighbour_phone_number">+33 6 99 99 99 99</string>
